@@ -8,16 +8,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
-            --bg-gradient: linear-gradient(180deg, #98c6fb 0%, #d8e8fc 280px, #edf4fd 100%);
+            --bg-gradient: linear-gradient(180deg, #9bc7fb 0%, #dbe9fc 360px, #eef5fd 100%);
             --accent-blue: #4460d2;
-            --accent-blue-hover: #354eb8;
             --light-pill: #eef3fc;
             --alert-bg: #f2f6fd;
             --text-main: #1f242e;
-            --text-muted: #5e6676;
+            --text-muted: #576071;
             --text-sub: #8792a2;
             --card-radius: 28px;
-            --card-shadow: 0 12px 36px rgba(45, 78, 160, 0.08);
+            --card-shadow: 0 16px 40px rgba(45, 78, 160, 0.08);
             --border-light: #e8eef6;
         }
 
@@ -30,30 +29,31 @@
         }
 
         body {
-            background-color: #e4edf8;
+            background-color: #dbe8f8;
             color: var(--text-main);
             display: flex;
             justify-content: center;
             align-items: flex-start;
             min-height: 100vh;
+            padding: 0;
         }
 
-        /* Контейнер макета */
+        /* Контейнер макета с комфортной десктопной шириной */
         .app-container {
             width: 100%;
-            max-width: 680px;
+            max-width: 860px;
             min-height: 100vh;
             background: var(--bg-gradient);
             position: relative;
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.07);
-            padding-bottom: 96px;
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.08);
             display: flex;
             flex-direction: column;
+            padding-bottom: 48px;
         }
 
-        /* Шапка в стиле экрана приложения */
+        /* Шапка страницы */
         header {
-            padding: 30px 24px 20px;
+            padding: 36px 36px 24px;
             position: relative;
         }
 
@@ -61,12 +61,13 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
+            user-select: none;
         }
 
         .team-badge {
-            width: 42px;
-            height: 42px;
+            width: 44px;
+            height: 44px;
             background: #2b1770;
             border-radius: 12px;
             display: flex;
@@ -74,53 +75,48 @@
             justify-content: center;
             color: #ffffff;
             font-size: 20px;
-            box-shadow: 0 4px 12px rgba(43, 23, 112, 0.25);
+            box-shadow: 0 4px 14px rgba(43, 23, 112, 0.28);
+            flex-shrink: 0;
         }
 
         .team-title {
             color: #ffffff;
-            font-size: 20px;
+            font-size: 21px;
             font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 6px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.12);
-        }
-
-        .team-title i {
-            font-size: 13px;
-            opacity: 0.85;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.14);
         }
 
         h1.main-title {
             color: #ffffff;
-            font-size: 32px;
+            font-size: 38px;
             font-weight: 800;
             line-height: 1.15;
-            letter-spacing: -0.5px;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.12);
-            margin-bottom: 6px;
+            letter-spacing: -0.6px;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.14);
+            margin-bottom: 8px;
         }
 
         .date-badge {
             color: rgba(255, 255, 255, 0.95);
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 500;
             display: inline-block;
         }
 
-        /* Основная белая карточка контента */
+        /* Карточка контента */
         .content-card {
             background: #ffffff;
             border-radius: var(--card-radius);
-            margin: 8px 16px 20px;
-            padding: 28px 24px;
+            margin: 8px 24px 0;
+            padding: 36px 36px;
             box-shadow: var(--card-shadow);
         }
 
         /* Стилизация разделов */
         section {
-            margin-bottom: 28px;
+            margin-bottom: 30px;
         }
 
         section:last-child {
@@ -130,15 +126,15 @@
         .section-header {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 14px;
+            gap: 12px;
+            margin-bottom: 16px;
         }
 
         .section-icon-pill {
             background: var(--light-pill);
             color: var(--accent-blue);
-            width: 34px;
-            height: 34px;
+            width: 36px;
+            height: 36px;
             border-radius: 10px;
             display: flex;
             align-items: center;
@@ -148,7 +144,7 @@
         }
 
         h2 {
-            font-size: 17px;
+            font-size: 18px;
             font-weight: 700;
             color: var(--text-main);
             text-transform: uppercase;
@@ -156,85 +152,90 @@
         }
 
         p {
-            font-size: 14px;
-            line-height: 1.6;
+            font-size: 15px;
+            line-height: 1.65;
             color: var(--text-muted);
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
 
-        /* Синяя акцентная плашка базового принципа */
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Синяя плашка базового принципа */
         .core-principle-banner {
             background: var(--accent-blue);
             color: #ffffff;
-            border-radius: 18px;
-            padding: 16px 18px;
-            margin: 16px 0 20px;
+            border-radius: 20px;
+            padding: 18px 22px;
+            margin: 18px 0 22px;
             display: flex;
-            gap: 14px;
+            gap: 16px;
             align-items: flex-start;
-            box-shadow: 0 6px 18px rgba(68, 96, 210, 0.22);
+            box-shadow: 0 8px 22px rgba(68, 96, 210, 0.24);
         }
 
         .core-principle-banner i {
-            font-size: 22px;
+            font-size: 24px;
             margin-top: 2px;
+            flex-shrink: 0;
         }
 
         .core-principle-banner p {
             color: #ffffff;
-            font-size: 13.5px;
-            line-height: 1.5;
+            font-size: 14.5px;
+            line-height: 1.55;
             margin: 0;
             font-weight: 500;
         }
 
-        /* Светлые информационные плашки со скриншота */
+        /* Информационная плашка */
         .info-callout {
             background: var(--alert-bg);
-            border-radius: 16px;
-            padding: 14px 16px;
+            border-radius: 18px;
+            padding: 16px 20px;
             display: flex;
-            gap: 12px;
+            gap: 14px;
             align-items: flex-start;
-            margin: 14px 0;
+            margin: 16px 0;
         }
 
         .info-callout i {
             color: var(--accent-blue);
-            font-size: 16px;
+            font-size: 17px;
             margin-top: 2px;
             flex-shrink: 0;
         }
 
         .info-callout p {
-            font-size: 13px;
-            line-height: 1.5;
+            font-size: 14px;
+            line-height: 1.55;
             color: var(--text-main);
             margin: 0;
         }
 
-        /* Список разрешений и параметров */
+        /* Списки */
         ul.custom-list {
             list-style: none;
-            margin: 10px 0 16px;
+            margin: 12px 0 16px;
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
 
         ul.custom-list li {
-            font-size: 13.5px;
-            line-height: 1.5;
+            font-size: 14.5px;
+            line-height: 1.55;
             color: var(--text-muted);
-            padding-left: 20px;
+            padding-left: 22px;
             position: relative;
         }
 
         ul.custom-list li::before {
             content: "";
             position: absolute;
-            left: 4px;
-            top: 8px;
+            left: 6px;
+            top: 9px;
             width: 6px;
             height: 6px;
             border-radius: 50%;
@@ -244,9 +245,9 @@
         code {
             background-color: #f0f3fa;
             color: var(--accent-blue);
-            padding: 2px 6px;
+            padding: 3px 7px;
             border-radius: 6px;
-            font-size: 12px;
+            font-size: 12.5px;
             font-family: SFMono-Regular, Menlo, Monaco, Consolas, monospace;
             font-weight: 600;
         }
@@ -254,44 +255,46 @@
         hr {
             border: none;
             border-top: 1px solid var(--border-light);
-            margin: 22px 0;
+            margin: 26px 0;
         }
 
-        /* Контактные плашки */
+        /* Контакты */
         .contacts-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 10px;
-            margin-top: 12px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+            margin-top: 14px;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 12px 14px;
+            gap: 14px;
+            padding: 14px 16px;
             background: #f8fafc;
-            border-radius: 14px;
+            border-radius: 16px;
             border: 1px solid var(--border-light);
             text-decoration: none;
             color: var(--text-main);
             transition: all 0.2s ease;
         }
 
-        .contact-item:hover {
+        a.contact-item:hover {
             border-color: #cbd7ec;
             background: #f1f5fb;
+            transform: translateY(-1px);
         }
 
         .contact-item i {
             color: var(--accent-blue);
-            font-size: 18px;
+            font-size: 20px;
             width: 24px;
             text-align: center;
+            flex-shrink: 0;
         }
 
         .contact-info {
-            font-size: 13px;
+            font-size: 13.5px;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -303,44 +306,28 @@
             text-transform: uppercase;
             font-weight: 600;
             display: block;
+            margin-bottom: 2px;
         }
 
-        /* Нижний тулбар навигации */
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: 680px;
-            background: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid var(--border-light);
-            display: flex;
-            justify-content: space-around;
-            padding: 10px 0 14px;
-            z-index: 100;
-        }
+        /* Адаптивность для мобильных экранов */
+        @media (max-width: 600px) {
+            header {
+                padding: 24px 20px 18px;
+            }
 
-        .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-            text-decoration: none;
-            color: #9aa4b2;
-            font-size: 11px;
-            font-weight: 600;
-            width: 20%;
-            transition: color 0.15s ease;
-        }
+            h1.main-title {
+                font-size: 30px;
+            }
 
-        .nav-item i {
-            font-size: 19px;
-        }
+            .content-card {
+                margin: 4px 12px 0;
+                padding: 24px 18px;
+                border-radius: 22px;
+            }
 
-        .nav-item.active {
-            color: var(--accent-blue);
+            .contacts-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -348,14 +335,14 @@
 
     <div class="app-container">
         
-        <!-- Шапка приложения -->
+        <!-- Шапка -->
         <header>
             <div class="header-top">
                 <div class="team-badge">
                     <i class="fa-solid fa-hockey-puck"></i>
                 </div>
                 <div class="team-title">
-                    BEER Liga Manager <i class="fa-solid fa-chevron-down"></i>
+                    BEER Liga Manager
                 </div>
             </div>
             <h1 class="main-title">Privacy Policy</h1>
@@ -393,18 +380,18 @@
                 </div>
                 <p><strong>2.1. Данные, вводимые Пользователем локально:</strong></p>
                 <ul class="custom-list">
-                    <li><strong>Данные игроков и штаба:</strong> ФИО/псевдоним, номер, амплуа (позиция), дата рождения (для локальных напоминаний), физические метрики, посещаемость тренировок.</li>
-                    <li><strong>Данные команды:</strong> название, логотип, звенья/пятерки, пользовательские схемы.</li>
-                    <li><strong>Заметки и финансы:</strong> статистика матчей, учет взносов и оплат (при ведении).</li>
-                    <li><strong>Графика:</strong> аватары игроков и схемы упражнений из галереи или с камеры.</li>
+                    <li><strong>Данные игроков и штаба:</strong> фамилия, имя, отчество (или псевдоним), игровой номер, амплуа (позиция), дата рождения (для формирования локальных напоминаний), физические метрики и показатели тестирования, посещаемость тренировок.</li>
+                    <li><strong>Данные команды:</strong> название команды, логотип, составы звеньев и пятерок, пользовательские тактические схемы и рисунки.</li>
+                    <li><strong>Игровые и финансовые заметки:</strong> статистика матчей, записи о командных взносах/оплатах (при ведении Пользователем).</li>
+                    <li><strong>Графические материалы:</strong> аватары игроков и изображения упражнений, выбранные из галереи устройства или созданные с помощью камеры.</li>
                 </ul>
 
                 <p><strong>2.2. Системные отчёты об ошибках (Crash Reports):</strong></p>
-                <p>При возникновении сбоев может формироваться обезличенный отчет: модель устройства, версия Android, версия Приложения и текстовый стектрейс ошибки (без персональных данных игроков).</p>
+                <p>В случае сбоя может формироваться технический отчёт: модель устройства, версия ОС Android, версия Приложения и текстовый стектрейс ошибки (без включения персональных данных игроков).</p>
                 
                 <div class="info-callout">
                     <i class="fa-solid fa-circle-exclamation"></i>
-                    <p>Автоматическая отправка отчётов осуществляется только при включении опции в настройках. Вы также можете передать лог вручную службе поддержки.</p>
+                    <p>Автоматическая отправка отчётов осуществляется только при включении опции в настройках Приложения. Пользователь также может отправить отчёт вручную (скопировав текст в буфер обмена для передачи в службу поддержки).</p>
                 </div>
             </section>
 
@@ -416,12 +403,12 @@
                     <div class="section-icon-pill"><i class="fa-solid fa-key"></i></div>
                     <h2>3. Разрешения устройства</h2>
                 </div>
-                <p>Приложение запрашивает у Android исключительно функции, необходимые для ключевой работы:</p>
+                <p>Приложение запрашивает у операционной системы Android только те разрешения, которые необходимы для выполнения его функций:</p>
                 <ul class="custom-list">
-                    <li><code>CAMERA</code> — считывание QR-кодов при P2P-связывании устройств и создание аватаров/упражнений. Скрытая съёмка исключена.</li>
-                    <li><code>BLUETOOTH_SCAN</code>, <code>BLUETOOTH_CONNECT</code>, <code>NEARBY_WIFI_DEVICES</code>, <code>ACCESS_FINE_LOCATION</code> — требуются Android для прямого обмена составами поблизости (Nearby Connections / Wi-Fi Direct / Bluetooth). Данные геопозиции не собираются.</li>
-                    <li><code>POST_NOTIFICATIONS</code> — показ напоминаний о днях рождения и статусе таймера смен матча.</li>
-                    <li><code>VIBRATE</code>, <code>WAKE_LOCK</code>, <code>FOREGROUND_SERVICE</code> — поддержание непрерывной работы секундомера и таймера смен на льду.</li>
+                    <li><code>CAMERA</code> — исключительно для считывания QR-кодов при локальном P2P-связывании устройств и для создания аватаров игроков/фотографий упражнений. Не используется для скрытой съёмки.</li>
+                    <li><code>BLUETOOTH_SCAN</code>, <code>BLUETOOTH_CONNECT</code>, <code>NEARBY_WIFI_DEVICES</code>, <code>ACCESS_FINE_LOCATION</code> — требуются Android исключительно для обеспечения прямого обмена данными между устройствами тренеров поблизости (Google Nearby Connections / Wi-Fi Direct / Bluetooth). Данные о геопозиции не собираются и не передаются.</li>
+                    <li><code>POST_NOTIFICATIONS</code> — отображение локальных напоминаний о днях рождения игроков и статуса работы таймера смен во время матча.</li>
+                    <li><code>VIBRATE</code>, <code>WAKE_LOCK</code>, <code>FOREGROUND_SERVICE</code> — поддержание непрерывной работы секундомера и таймера смен во время тренировок и игр.</li>
                 </ul>
             </section>
 
@@ -434,10 +421,10 @@
                     <h2>4. Цели обработки данных</h2>
                 </div>
                 <ul class="custom-list">
-                    <li>Обеспечение работы модулей Приложения (составы звеньев, схемы, секундомер смен, статистика).</li>
-                    <li>Отображение локальных системных уведомлений и напоминаний.</li>
-                    <li>Прямая локальная передача данных между тренерами по их личной инициативе (P2P-обмен).</li>
-                    <li>Повышение стабильности работы на основе добровольных отчетов об ошибках.</li>
+                    <li>Обеспечение функционирования всех модулей Приложения (составы, тактика, секундомер смен, статистика).</li>
+                    <li>Отображение локальных уведомлений и напоминаний.</li>
+                    <li>Обеспечение прямой передачи данных между устройствами Пользователей по их инициативе (P2P-обмен составами и схемами).</li>
+                    <li>Улучшение стабильности работы Приложения на основе обезличенных отчётов об ошибках (при согласии Пользователя).</li>
                 </ul>
             </section>
 
@@ -449,9 +436,9 @@
                     <div class="section-icon-pill"><i class="fa-solid fa-trash-can"></i></div>
                     <h2>5. Хранение и уничтожение</h2>
                 </div>
-                <p><strong>5.1. Хранение:</strong> Все записи хранятся во внутренней изолированной памяти устройства в базе данных SQLite (Room) и <code>SharedPreferences</code>.</p>
-                <p><strong>5.2. Резервное копирование:</strong> Доступно ручное создание локальных бэкапов базы данных на вашем устройстве.</p>
-                <p><strong>5.3. Уничтожение:</strong> Любые данные удаляются прямо из интерфейса. Полная ликвидация всей базы происходит при удалении Приложения с Android либо при очистке его хранилища в системных настройках телефона.</p>
+                <p><strong>5.1. Хранение:</strong> Данные хранятся во внутренней изолированной памяти устройства в локальной базе данных SQLite (Room) и настройках <code>SharedPreferences</code>.</p>
+                <p><strong>5.2. Резервное копирование:</strong> Пользователь может настраивать локальное создание резервных копий (бэкапов) базы данных на своём устройстве.</p>
+                <p><strong>5.3. Удаление данных:</strong> Любые записи редактируются и удаляются через интерфейс Приложения. Полное уничтожение всех данных происходит при удалении (деинсталляции) Приложения с устройства или очистке его данных в системных настройках Android.</p>
             </section>
 
             <hr>
@@ -464,13 +451,14 @@
                 </div>
                 <div class="info-callout">
                     <i class="fa-solid fa-ban"></i>
-                    <p><strong>Без трекеров:</strong> В коде полностью отсутствуют сторонние рекламные и аналитические трекеры (нет Google Analytics, Firebase, AppMetrica и т.д.).</p>
+                    <p><strong>Отсутствие сторонних трекеров:</strong> Приложение не содержит рекламных модулей и аналитических трекеров (Google Analytics, Firebase Analytics, Yandex AppMetrica и т.д.).</p>
                 </div>
-                <p>Передача информации возможна исключительно по личной команде Пользователя:</p>
+                <p>Передача данных возможна исключительно по личной инициативе Пользователя:</p>
                 <ul class="custom-list">
-                    <li><strong>P2P-обмен:</strong> Прямая отправка схемы или звена на планшет второго тренера по Bluetooth/Wi-Fi.</li>
-                    <li><strong>Шеринг:</strong> Экспорт отчетов или графики через стандартный системный диалог «Поделиться».</li>
+                    <li><strong>P2P-обмен:</strong> Составы и схемы могут передаваться напрямую на другое устройство тренера по локальной сети/Bluetooth при установлении соединения обеими сторонами.</li>
+                    <li><strong>Шеринг:</strong> Экспорт текстовых отчётов или изображений в сторонние приложения (мессенджеры, e-mail) через стандартное меню Android «Поделиться».</li>
                 </ul>
+                <p>Оператор не продаёт и не передаёт персональные данные Пользователей третьим лицам.</p>
             </section>
 
             <hr>
@@ -482,10 +470,10 @@
                     <h2>7. Права пользователя (152-ФЗ)</h2>
                 </div>
                 <ul class="custom-list">
-                    <li>Полный локальный контроль, редактирование и удаление всей базы команды.</li>
-                    <li>Управление отправкой отчетов об ошибках в меню параметров.</li>
-                    <li>Отзыв согласия путем деинсталляции приложения.</li>
-                    <li>Обращение к разработчику по любым техническим и правовым вопросам.</li>
+                    <li>Полностью контролировать, редактировать и удалять введённую информацию.</li>
+                    <li>Включать или отключать в настройках Приложения автоматическую отправку отчётов об ошибках.</li>
+                    <li>Отозвать согласие на обработку данных путем удаления Приложения с устройства.</li>
+                    <li>Направлять обращения Оператору по вопросам работы с данными.</li>
                 </ul>
             </section>
 
@@ -497,7 +485,7 @@
                     <div class="section-icon-pill"><i class="fa-solid fa-address-card"></i></div>
                     <h2>8. Контакты Оператора</h2>
                 </div>
-                <p>По всем вопросам функционирования Приложения и положений Политики:</p>
+                <p>По всем вопросам, связанным с Политикой конфиденциальности и работой Приложения:</p>
                 
                 <div class="contacts-grid">
                     <div class="contact-item">
@@ -527,30 +515,6 @@
             </section>
 
         </main>
-
-        <!-- Навигационная панель из макета приложения -->
-        <nav class="bottom-nav">
-            <a href="#" class="nav-item">
-                <i class="fa-solid fa-users"></i>
-                <span>Состав</span>
-            </a>
-            <a href="#" class="nav-item">
-                <i class="fa-solid fa-user-check"></i>
-                <span>Запись</span>
-            </a>
-            <a href="#" class="nav-item">
-                <i class="fa-solid fa-dumbbell"></i>
-                <span>Упражнения</span>
-            </a>
-            <a href="#" class="nav-item">
-                <i class="fa-solid fa-calendar-days"></i>
-                <span>Календарь</span>
-            </a>
-            <a href="#" class="nav-item active">
-                <i class="fa-solid fa-gear"></i>
-                <span>Настройки</span>
-            </a>
-        </nav>
 
     </div>
 
