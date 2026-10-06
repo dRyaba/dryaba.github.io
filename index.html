@@ -4,12 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Политика конфиденциальности — BEERLIGA Hockey Manager</title>
-    <!-- Иконки Font Awesome -->
+    <meta name="description" content="Официальная политика конфиденциальности и обработки персональных данных мобильного приложения BEERLIGA Hockey Manager.">
+    
+    <!-- OpenGraph / Social Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Политика конфиденциальности — BEERLIGA Hockey Manager">
+    <meta property="og:description" content="Автономный хоккейный планшет и инструмент менеджмента команды. 100% локальное хранение данных.">
+    <meta property="og:url" content="https://dryaba.github.io/">
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
         :root {
             --bg-gradient: linear-gradient(180deg, #9bc7fb 0%, #dbe9fc 360px, #eef5fd 100%);
             --accent-blue: #4460d2;
+            --accent-blue-hover: #354eb8;
             --light-pill: #eef3fc;
             --alert-bg: #f2f6fd;
             --text-main: #1f242e;
@@ -28,6 +38,10 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: #dbe8f8;
             color: var(--text-main);
@@ -35,33 +49,35 @@
             justify-content: center;
             align-items: flex-start;
             min-height: 100vh;
-            padding: 0;
         }
 
-        /* Контейнер макета с комфортной десктопной шириной */
-        .app-container {
+        .page-wrapper {
             width: 100%;
-            max-width: 860px;
+            max-width: 1200px;
             min-height: 100vh;
             background: var(--bg-gradient);
-            position: relative;
             box-shadow: 0 0 60px rgba(0, 0, 0, 0.08);
             display: flex;
             flex-direction: column;
             padding-bottom: 48px;
         }
 
-        /* Шапка страницы */
+        /* Шапка */
         header {
-            padding: 36px 36px 24px;
-            position: relative;
+            padding: 36px 40px 20px;
         }
 
         .header-top {
             display: flex;
             align-items: center;
-            gap: 12px;
+            justify-content: space-between;
             margin-bottom: 18px;
+        }
+
+        .brand-wrap {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             user-select: none;
         }
 
@@ -76,16 +92,34 @@
             color: #ffffff;
             font-size: 20px;
             box-shadow: 0 4px 14px rgba(43, 23, 112, 0.28);
-            flex-shrink: 0;
         }
 
         .team-title {
             color: #ffffff;
             font-size: 21px;
             font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.14);
+        }
+
+        .print-btn {
+            background: rgba(255, 255, 255, 0.25);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            backdrop-filter: blur(8px);
+            transition: all 0.2s ease;
             display: flex;
             align-items: center;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.14);
+            gap: 8px;
+        }
+
+        .print-btn:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: translateY(-1px);
         }
 
         h1.main-title {
@@ -102,21 +136,149 @@
             color: rgba(255, 255, 255, 0.95);
             font-size: 14px;
             font-weight: 500;
-            display: inline-block;
         }
 
-        /* Карточка контента */
+        /* Быстрое резюме (Legal Design) */
+        .summary-container {
+            margin: 12px 40px 16px;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            border-radius: 22px;
+            padding: 22px 24px;
+            border: 1px solid rgba(255, 255, 255, 0.9);
+        }
+
+        .summary-header {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+        }
+
+        .summary-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 16px;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        .summary-card i {
+            color: var(--accent-blue);
+            font-size: 20px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .summary-card strong {
+            display: block;
+            font-size: 14px;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .summary-card span {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            line-height: 1.45;
+            display: block;
+        }
+
+        .summary-disclaimer {
+            margin-top: 14px;
+            font-size: 11.5px;
+            color: var(--text-sub);
+            font-style: italic;
+        }
+
+        /* Двухколоночный макет контента */
+        .main-layout {
+            display: flex;
+            align-items: flex-start;
+            gap: 28px;
+            margin: 8px 40px 0;
+        }
+
+        /* Плавающее оглавление (Sticky TOC) */
+        .toc-sidebar {
+            width: 280px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 24px;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--card-shadow);
+            max-height: calc(100vh - 48px);
+            overflow-y: auto;
+        }
+
+        .toc-title {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-sub);
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .toc-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .toc-link {
+            display: block;
+            font-size: 13px;
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 7px 10px;
+            border-radius: 8px;
+            line-height: 1.35;
+            transition: all 0.15s ease;
+        }
+
+        .toc-link:hover {
+            color: var(--accent-blue);
+            background: var(--light-pill);
+        }
+
+        .toc-link.active {
+            color: #ffffff;
+            background: var(--accent-blue);
+            font-weight: 600;
+        }
+
+        /* Карточка документа */
         .content-card {
             background: #ffffff;
             border-radius: var(--card-radius);
-            margin: 8px 24px 0;
-            padding: 36px 36px;
+            padding: 40px;
             box-shadow: var(--card-shadow);
+            flex-grow: 1;
+            min-width: 0;
         }
 
-        /* Стилизация разделов */
         section {
-            margin-bottom: 30px;
+            margin-bottom: 36px;
+            scroll-margin-top: 32px;
         }
 
         section:last-child {
@@ -128,31 +290,52 @@
             align-items: center;
             gap: 12px;
             margin-bottom: 16px;
+            position: relative;
         }
 
         .section-icon-pill {
             background: var(--light-pill);
             color: var(--accent-blue);
-            width: 36px;
-            height: 36px;
+            width: 38px;
+            height: 38px;
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 15px;
+            font-size: 16px;
             flex-shrink: 0;
         }
 
         h2 {
-            font-size: 18px;
+            font-size: 19px;
             font-weight: 700;
             color: var(--text-main);
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
+            letter-spacing: -0.2px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Интерактивная якорная ссылка */
+        .anchor-link {
+            color: #cbd5e1;
+            font-size: 14px;
+            text-decoration: none;
+            opacity: 0;
+            cursor: pointer;
+            transition: opacity 0.2s ease, color 0.2s ease;
+        }
+
+        .section-header:hover .anchor-link {
+            opacity: 1;
+        }
+
+        .anchor-link:hover {
+            color: var(--accent-blue);
         }
 
         p {
-            font-size: 15px;
+            font-size: 14.5px;
             line-height: 1.65;
             color: var(--text-muted);
             margin-bottom: 14px;
@@ -162,17 +345,16 @@
             margin-bottom: 0;
         }
 
-        /* Синяя плашка базового принципа */
         .core-principle-banner {
             background: var(--accent-blue);
             color: #ffffff;
             border-radius: 20px;
-            padding: 18px 22px;
+            padding: 20px 24px;
             margin: 18px 0 22px;
             display: flex;
             gap: 16px;
             align-items: flex-start;
-            box-shadow: 0 8px 22px rgba(68, 96, 210, 0.24);
+            box-shadow: 0 8px 24px rgba(68, 96, 210, 0.25);
         }
 
         .core-principle-banner i {
@@ -189,7 +371,6 @@
             font-weight: 500;
         }
 
-        /* Информационная плашка */
         .info-callout {
             background: var(--alert-bg);
             border-radius: 18px;
@@ -208,13 +389,12 @@
         }
 
         .info-callout p {
-            font-size: 14px;
+            font-size: 13.5px;
             line-height: 1.55;
             color: var(--text-main);
             margin: 0;
         }
 
-        /* Списки */
         ul.custom-list {
             list-style: none;
             margin: 12px 0 16px;
@@ -224,7 +404,7 @@
         }
 
         ul.custom-list li {
-            font-size: 14.5px;
+            font-size: 14px;
             line-height: 1.55;
             color: var(--text-muted);
             padding-left: 22px;
@@ -242,12 +422,49 @@
             background-color: var(--accent-blue);
         }
 
+        /* Таблица разрешений */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            margin: 16px 0 20px;
+            border: 1px solid var(--border-light);
+            border-radius: 14px;
+        }
+
+        table.permissions-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13.5px;
+            text-align: left;
+        }
+
+        table.permissions-table th {
+            background-color: #f7fafc;
+            color: var(--text-main);
+            font-weight: 700;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-light);
+            white-space: nowrap;
+        }
+
+        table.permissions-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-light);
+            color: var(--text-muted);
+            vertical-align: top;
+            line-height: 1.5;
+        }
+
+        table.permissions-table tr:last-child td {
+            border-bottom: none;
+        }
+
         code {
             background-color: #f0f3fa;
             color: var(--accent-blue);
-            padding: 3px 7px;
+            padding: 3px 6px;
             border-radius: 6px;
-            font-size: 12.5px;
+            font-size: 12px;
             font-family: SFMono-Regular, Menlo, Monaco, Consolas, monospace;
             font-weight: 600;
         }
@@ -255,7 +472,7 @@
         hr {
             border: none;
             border-top: 1px solid var(--border-light);
-            margin: 26px 0;
+            margin: 28px 0;
         }
 
         /* Контакты */
@@ -309,214 +526,588 @@
             margin-bottom: 2px;
         }
 
-        /* Адаптивность для мобильных экранов */
+        /* Плавающая кнопка Наверх */
+        .back-to-top {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--accent-blue);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            box-shadow: 0 6px 18px rgba(68, 96, 210, 0.35);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.25s ease;
+            z-index: 99;
+            border: none;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--accent-blue-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Всплывающее уведомление о копировании якоря */
+        .toast-copied {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: #1f242e;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 500;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.25s ease;
+            z-index: 1000;
+        }
+
+        .toast-copied.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Адаптивность для планшетов и мобильных */
+        @media (max-width: 992px) {
+            .toc-sidebar {
+                display: none; /* На экранах меньше 992px скрываем боковую панель */
+            }
+
+            .main-layout {
+                margin: 8px 24px 0;
+            }
+        }
+
         @media (max-width: 600px) {
             header {
-                padding: 24px 20px 18px;
+                padding: 24px 20px 16px;
+            }
+
+            .print-btn {
+                display: none;
             }
 
             h1.main-title {
-                font-size: 30px;
+                font-size: 28px;
+            }
+
+            .summary-container {
+                margin: 8px 12px;
+                padding: 16px;
+            }
+
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .main-layout {
+                margin: 4px 12px 0;
             }
 
             .content-card {
-                margin: 4px 12px 0;
-                padding: 24px 18px;
-                border-radius: 22px;
+                padding: 22px 18px;
+                border-radius: 20px;
             }
 
             .contacts-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .back-to-top {
+                bottom: 18px;
+                right: 18px;
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+        }
+
+        /* Стили для чистой печати / PDF */
+        @media print {
+            body {
+                background: #ffffff;
+                color: #000000;
+            }
+
+            .page-wrapper {
+                box-shadow: none;
+                max-width: 100%;
+                background: #ffffff;
+                padding-bottom: 0;
+            }
+
+            header {
+                padding: 0 0 20px;
+                border-bottom: 2px solid #000000;
+            }
+
+            .print-btn, .team-badge, .toc-sidebar, .back-to-top, .anchor-link {
+                display: none !important;
+            }
+
+            .team-title, h1.main-title, .date-badge {
+                color: #000000;
+                text-shadow: none;
+            }
+
+            .summary-container {
+                border: 1px solid #cccccc;
+                background: #fdfdfd;
+                margin: 16px 0;
+            }
+
+            .main-layout {
+                margin: 0;
+                display: block;
+            }
+
+            .content-card {
+                box-shadow: none;
+                margin: 0;
+                padding: 20px 0;
+            }
+
+            .core-principle-banner {
+                background: #f0f0f0;
+                color: #000000;
+                border: 1px solid #000000;
+                box-shadow: none;
+            }
+
+            .core-principle-banner p {
+                color: #000000;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="app-container">
+    <div class="page-wrapper" id="top">
         
         <!-- Шапка -->
         <header>
             <div class="header-top">
-                <div class="team-badge">
-                    <i class="fa-solid fa-hockey-puck"></i>
+                <div class="brand-wrap">
+                    <div class="team-badge">
+                        <i class="fa-solid fa-hockey-puck"></i>
+                    </div>
+                    <div class="team-title">
+                        BEER Liga Manager
+                    </div>
                 </div>
-                <div class="team-title">
-                    BEER Liga Manager
-                </div>
+                <button class="print-btn" onclick="window.print()">
+                    <i class="fa-solid fa-print"></i> Версия для печати
+                </button>
             </div>
             <h1 class="main-title">Privacy Policy</h1>
-            <span class="date-badge">Дата публикации: 6 октября 2026 г.</span>
+            <span class="date-badge">Дата публикации: 6 октября 2026 г. | Версия 1.1</span>
         </header>
 
-        <!-- Карточка документа -->
-        <main class="content-card">
-
-            <!-- Раздел 1 -->
-            <section>
-                <div class="section-header">
-                    <div class="section-icon-pill"><i class="fa-solid fa-circle-info"></i></div>
-                    <h2>1. Общие положения</h2>
-                </div>
-                <p>1.1. Настоящая Политика конфиденциальности (далее — «Политика») определяет порядок обработки, хранения и защиты информации о физических лицах (далее — «Пользователи»), использующих мобильное приложение <strong>«BEER Liga Manager»</strong> (далее — «Приложение»).</p>
-                <p>1.2. Оператором обработки персональных данных является Разработчик приложения: <strong>Гольцов Алексей Евгеньевич</strong> (далее — «Оператор»).</p>
-                <p>1.3. Приложение представляет собой специализированный автономный хоккейный планшет и инструмент менеджмента команды, обеспечивающий ведение состава, статистику игроков, планирование упражнений, управление сменами и создание тактических схем.</p>
-                
-                <div class="core-principle-banner">
+        <!-- Блок Legal Design: Главное о конфиденциальности -->
+        <div class="summary-container">
+            <div class="summary-header">
+                <i class="fa-solid fa-bolt"></i> Главное о конфиденциальности (в 4 фактах)
+            </div>
+            <div class="summary-grid">
+                <div class="summary-card">
                     <i class="fa-solid fa-hard-drive"></i>
-                    <p><strong>1.4. Базовый принцип работы:</strong> Приложение работает полностью автономно. Данные сохраняются <u>исключительно локально</u> на вашем устройстве в защищённой базе данных. Оператор не собирает и не хранит личные данные игроков на сторонних серверах.</p>
+                    <strong>100% Автономность</strong>
+                    <span>База данных хранится локально на вашем смартфоне. Внешних серверов нет.</span>
                 </div>
-
-                <p>1.5. Установка и использование Приложения означают согласие Пользователя с условиями настоящей Политики.</p>
-            </section>
-
-            <hr>
-
-            <!-- Раздел 2 -->
-            <section>
-                <div class="section-header">
-                    <div class="section-icon-pill"><i class="fa-solid fa-database"></i></div>
-                    <h2>2. Категории и объем данных</h2>
-                </div>
-                <p><strong>2.1. Данные, вводимые Пользователем локально:</strong></p>
-                <ul class="custom-list">
-                    <li><strong>Данные игроков и штаба:</strong> фамилия, имя, отчество (или псевдоним), игровой номер, амплуа (позиция), дата рождения (для формирования локальных напоминаний), физические метрики и показатели тестирования, посещаемость тренировок.</li>
-                    <li><strong>Данные команды:</strong> название команды, логотип, составы звеньев и пятерок, пользовательские тактические схемы и рисунки.</li>
-                    <li><strong>Игровые и финансовые заметки:</strong> статистика матчей, записи о командных взносах/оплатах (при ведении Пользователем).</li>
-                    <li><strong>Графические материалы:</strong> аватары игроков и изображения упражнений, выбранные из галереи устройства или созданные с помощью камеры.</li>
-                </ul>
-
-                <p><strong>2.2. Системные отчёты об ошибках (Crash Reports):</strong></p>
-                <p>В случае сбоя может формироваться технический отчёт: модель устройства, версия ОС Android, версия Приложения и текстовый стектрейс ошибки (без включения персональных данных игроков).</p>
-                
-                <div class="info-callout">
-                    <i class="fa-solid fa-circle-exclamation"></i>
-                    <p>Автоматическая отправка отчётов осуществляется только при включении опции в настройках Приложения. Пользователь также может отправить отчёт вручную (скопировав текст в буфер обмена для передачи в службу поддержки).</p>
-                </div>
-            </section>
-
-            <hr>
-
-            <!-- Раздел 3 -->
-            <section>
-                <div class="section-header">
-                    <div class="section-icon-pill"><i class="fa-solid fa-key"></i></div>
-                    <h2>3. Разрешения устройства</h2>
-                </div>
-                <p>Приложение запрашивает у операционной системы Android только те разрешения, которые необходимы для выполнения его функций:</p>
-                <ul class="custom-list">
-                    <li><code>CAMERA</code> — исключительно для считывания QR-кодов при локальном P2P-связывании устройств и для создания аватаров игроков/фотографий упражнений. Не используется для скрытой съёмки.</li>
-                    <li><code>BLUETOOTH_SCAN</code>, <code>BLUETOOTH_CONNECT</code>, <code>NEARBY_WIFI_DEVICES</code>, <code>ACCESS_FINE_LOCATION</code> — требуются Android исключительно для обеспечения прямого обмена данными между устройствами тренеров поблизости (Google Nearby Connections / Wi-Fi Direct / Bluetooth). Данные о геопозиции не собираются и не передаются.</li>
-                    <li><code>POST_NOTIFICATIONS</code> — отображение локальных напоминаний о днях рождения игроков и статуса работы таймера смен во время матча.</li>
-                    <li><code>VIBRATE</code>, <code>WAKE_LOCK</code>, <code>FOREGROUND_SERVICE</code> — поддержание непрерывной работы секундомера и таймера смен во время тренировок и игр.</li>
-                </ul>
-            </section>
-
-            <hr>
-
-            <!-- Раздел 4 -->
-            <section>
-                <div class="section-header">
-                    <div class="section-icon-pill"><i class="fa-solid fa-bullseye"></i></div>
-                    <h2>4. Цели обработки данных</h2>
-                </div>
-                <ul class="custom-list">
-                    <li>Обеспечение функционирования всех модулей Приложения (составы, тактика, секундомер смен, статистика).</li>
-                    <li>Отображение локальных уведомлений и напоминаний.</li>
-                    <li>Обеспечение прямой передачи данных между устройствами Пользователей по их инициативе (P2P-обмен составами и схемами).</li>
-                    <li>Улучшение стабильности работы Приложения на основе обезличенных отчётов об ошибках (при согласии Пользователя).</li>
-                </ul>
-            </section>
-
-            <hr>
-
-            <!-- Раздел 5 -->
-            <section>
-                <div class="section-header">
-                    <div class="section-icon-pill"><i class="fa-solid fa-trash-can"></i></div>
-                    <h2>5. Хранение и уничтожение</h2>
-                </div>
-                <p><strong>5.1. Хранение:</strong> Данные хранятся во внутренней изолированной памяти устройства в локальной базе данных SQLite (Room) и настройках <code>SharedPreferences</code>.</p>
-                <p><strong>5.2. Резервное копирование:</strong> Пользователь может настраивать локальное создание резервных копий (бэкапов) базы данных на своём устройстве.</p>
-                <p><strong>5.3. Удаление данных:</strong> Любые записи редактируются и удаляются через интерфейс Приложения. Полное уничтожение всех данных происходит при удалении (деинсталляции) Приложения с устройства или очистке его данных в системных настройках Android.</p>
-            </section>
-
-            <hr>
-
-            <!-- Раздел 6 -->
-            <section>
-                <div class="section-header">
-                    <div class="section-icon-pill"><i class="fa-solid fa-shield-halved"></i></div>
-                    <h2>6. Передача третьим лицам</h2>
-                </div>
-                <div class="info-callout">
+                <div class="summary-card">
                     <i class="fa-solid fa-ban"></i>
-                    <p><strong>Отсутствие сторонних трекеров:</strong> Приложение не содержит рекламных модулей и аналитических трекеров (Google Analytics, Firebase Analytics, Yandex AppMetrica и т.д.).</p>
+                    <strong>Ноль трекеров</strong>
+                    <span>Без рекламы, аналитических систем Google/Яндекс и фоновой телеметрии.</span>
                 </div>
-                <p>Передача данных возможна исключительно по личной инициативе Пользователя:</p>
-                <ul class="custom-list">
-                    <li><strong>P2P-обмен:</strong> Составы и схемы могут передаваться напрямую на другое устройство тренера по локальной сети/Bluetooth при установлении соединения обеими сторонами.</li>
-                    <li><strong>Шеринг:</strong> Экспорт текстовых отчётов или изображений в сторонние приложения (мессенджеры, e-mail) через стандартное меню Android «Поделиться».</li>
+                <div class="summary-card">
+                    <i class="fa-solid fa-share-nodes"></i>
+                    <strong>Прямой P2P-обмен</strong>
+                    <span>Составы передаются только напрямую между устройствами тренеров поблизости.</span>
+                </div>
+                <div class="summary-card">
+                    <i class="fa-solid fa-trash-can"></i>
+                    <strong>Полный контроль</strong>
+                    <span>Удаление приложения полностью стирает все данные с устройства без следа.</span>
+                </div>
+            </div>
+            <div class="summary-disclaimer">
+                * Раздел выше подготовлен для быстрого ознакомления. Юридическую силу имеет полный текст документа, изложенный ниже.
+            </div>
+        </div>
+
+        <!-- Двухколоночный контейнер: Оглавление слева + Контент справа -->
+        <div class="main-layout">
+            
+            <!-- Sticky TOC (Оглавление со Scrollspy) -->
+            <aside class="toc-sidebar">
+                <div class="toc-title"><i class="fa-solid fa-list-ul"></i> Навигация</div>
+                <ul class="toc-list">
+                    <li><a href="#general" class="toc-link">1. Общие положения</a></li>
+                    <li><a href="#categories" class="toc-link">2. Категории данных</a></li>
+                    <li><a href="#permissions" class="toc-link">3. Разрешения Android</a></li>
+                    <li><a href="#purposes" class="toc-link">4. Цели обработки</a></li>
+                    <li><a href="#children" class="toc-link">5. Данные несовершеннолетних</a></li>
+                    <li><a href="#storage" class="toc-link">6. Хранение и удаление</a></li>
+                    <li><a href="#third-parties" class="toc-link">7. Передача третьим лицам</a></li>
+                    <li><a href="#rights" class="toc-link">8. Права Пользователя (152-ФЗ)</a></li>
+                    <li><a href="#changes" class="toc-link">9. Изменение Политики</a></li>
+                    <li><a href="#contacts" class="toc-link">10. Контактная информация</a></li>
                 </ul>
-                <p>Оператор не продаёт и не передаёт персональные данные Пользователей третьим лицам.</p>
-            </section>
+            </aside>
 
-            <hr>
+            <!-- Текст политики -->
+            <main class="content-card">
 
-            <!-- Раздел 7 -->
-            <section>
-                <div class="section-header">
-                    <div class="section-icon-pill"><i class="fa-solid fa-user-shield"></i></div>
-                    <h2>7. Права пользователя (152-ФЗ)</h2>
-                </div>
-                <ul class="custom-list">
-                    <li>Полностью контролировать, редактировать и удалять введённую информацию.</li>
-                    <li>Включать или отключать в настройках Приложения автоматическую отправку отчётов об ошибках.</li>
-                    <li>Отозвать согласие на обработку данных путем удаления Приложения с устройства.</li>
-                    <li>Направлять обращения Оператору по вопросам работы с данными.</li>
-                </ul>
-            </section>
-
-            <hr>
-
-            <!-- Раздел 8 -->
-            <section>
-                <div class="section-header">
-                    <div class="section-icon-pill"><i class="fa-solid fa-address-card"></i></div>
-                    <h2>8. Контакты Оператора</h2>
-                </div>
-                <p>По всем вопросам, связанным с Политикой конфиденциальности и работой Приложения:</p>
-                
-                <div class="contacts-grid">
-                    <div class="contact-item">
-                        <i class="fa-solid fa-user"></i>
-                        <div class="contact-info">
-                            <span class="contact-label">Разработчик</span>
-                            <strong>Гольцов Алексей Евгеньевич</strong>
-                        </div>
+                <!-- Раздел 1 -->
+                <section id="general">
+                    <div class="section-header">
+                        <div class="section-icon-pill"><i class="fa-solid fa-circle-info"></i></div>
+                        <h2>
+                            1. Общие положения
+                            <a href="#general" class="anchor-link" title="Скопировать ссылку на раздел"><i class="fa-solid fa-link"></i></a>
+                        </h2>
+                    </div>
+                    <p>1.1. Настоящая Политика конфиденциальности (далее — «Политика») определяет порядок обработки, хранения и защиты информации о физических лицах (далее — «Пользователи»), использующих мобильное приложение <strong>«BEER Liga Manager»</strong> (далее — «Приложение»).</p>
+                    <p>1.2. Оператором обработки персональных данных является Разработчик приложения: <strong>Гольцов Алексей Евгеньевич</strong> (далее — «Оператор»).</p>
+                    <p>1.3. Приложение представляет собой специализированный автономный хоккейный планшет и инструмент менеджмента команды, обеспечивающий ведение состава, статистику игроков, планирование упражнений, управление сменами и создание тактических схем.</p>
+                    
+                    <div class="core-principle-banner">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <p><strong>1.4. Базовый принцип работы Приложения:</strong> Приложение работает автономно. Основной массив данных, вводимых Пользователем, сохраняется <u>исключительно локально на устройстве Пользователя</u> в защищённой базе данных Приложения. Оператор не осуществляет систематический сбор, хранение или передачу персональных данных Пользователей на собственные или сторонние серверы.</p>
                     </div>
 
-                    <a href="mailto:beerligaapp@yandex.ru" class="contact-item">
-                        <i class="fa-solid fa-envelope"></i>
-                        <div class="contact-info">
-                            <span class="contact-label">E-mail</span>
-                            <strong>beerligaapp@yandex.ru</strong>
-                        </div>
-                    </a>
+                    <p>1.5. Установка и использование Приложения означают безоговорочное согласие Пользователя с условиями настоящей Политики.</p>
+                </section>
 
-                    <a href="https://vk.com/write-240833309" target="_blank" rel="noopener noreferrer" class="contact-item">
-                        <i class="fa-brands fa-vk"></i>
-                        <div class="contact-info">
-                            <span class="contact-label">ВКонтакте</span>
-                            <strong>vk.com/write-240833309</strong>
-                        </div>
-                    </a>
-                </div>
-            </section>
+                <hr>
 
-        </main>
+                <!-- Раздел 2 -->
+                <section id="categories">
+                    <div class="section-header">
+                        <div class="section-icon-pill"><i class="fa-solid fa-database"></i></div>
+                        <h2>
+                            2. Категории и объем данных
+                            <a href="#categories" class="anchor-link" title="Скопировать ссылку на раздел"><i class="fa-solid fa-link"></i></a>
+                        </h2>
+                    </div>
+                    <p><strong>2.1. Данные, вводимые Пользователем локально в Приложение:</strong></p>
+                    <ul class="custom-list">
+                        <li><strong>Данные игроков и тренерского штаба:</strong> фамилия, имя, отчество (или псевдоним), игровой номер, амплуа (позиция), дата рождения (для формирования локальных напоминаний), физические метрики и показатели тестирования, посещаемость тренировок;</li>
+                        <li><strong>Данные команды:</strong> название команды, логотип, составы звеньев и пятерок, пользовательские тактические схемы и рисунки;</li>
+                        <li><strong>Игровые и финансовые заметки:</strong> статистика матчей, записи о командных взносах/оплатах (при ведении Пользователем);</li>
+                        <li><strong>Графические материалы:</strong> аватары игроков и изображения упражнений, выбранные из галереи устройства или созданные с помощью камеры.</li>
+                    </ul>
+
+                    <p><strong>2.2. Технические данные и системные отчёты об ошибках (Crash Reports):</strong></p>
+                    <p>В случае возникновения сбоя в работе Приложения может формироваться технический отчёт, содержащий: модель устройства, версию операционной системы Android, версию Приложения и текстовый стектрейс ошибки (без включения персональных данных игроков).</p>
+                    
+                    <div class="info-callout">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <p>Автоматическая отправка отчётов осуществляется только при явном включении соответствующей опции в настройках Приложения. Пользователь также может отправить отчёт вручную (скопировав текст в буфер обмена для передачи в службу поддержки).</p>
+                    </div>
+                </section>
+
+                <hr>
+
+                <!-- Раздел 3: Таблица разрешений -->
+                <section id="permissions">
+                    <div class="section-header">
+                        <div class="section-icon-pill"><i class="fa-solid fa-key"></i></div>
+                        <h2>
+                            3. Использование системных разрешений Android
+                            <a href="#permissions" class="anchor-link" title="Скопировать ссылку на раздел"><i class="fa-solid fa-link"></i></a>
+                        </h2>
+                    </div>
+                    <p>Приложение запрашивает у операционной системы Android исключительно тот перечень разрешений, который критически необходим для выполнения прикладных функций:</p>
+                    
+                    <div class="table-responsive">
+                        <table class="permissions-table">
+                            <thead>
+                                <tr>
+                                    <th>Разрешение</th>
+                                    <th>Назначение</th>
+                                    <th>Условия запроса</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>CAMERA</code></td>
+                                    <td>Считывание QR-кодов при связывании устройств и съёмка аватаров игроков / упражнений. Скрытая съёмка исключена.</td>
+                                    <td>По запросу при открытии камеры</td>
+                                </tr>
+                                <tr>
+                                    <td><code>BLUETOOTH_SCAN</code><br><code>BLUETOOTH_CONNECT</code><br><code>NEARBY_WIFI_DEVICES</code><br><code>ACCESS_FINE_LOCATION</code></td>
+                                    <td>Прямой P2P-обмен тактикой и звеньями между устройствами тренеров поблизости (Google Nearby Connections / Wi-Fi Direct). Данные геопозиции не отслеживаются и не сохраняются.</td>
+                                    <td>При запуске сеанса обмена</td>
+                                </tr>
+                                <tr>
+                                    <td><code>POST_NOTIFICATIONS</code></td>
+                                    <td>Отображение локальных напоминаний о днях рождения игроков и статуса работы таймера смен матча.</td>
+                                    <td>При первом запуске на Android 13+</td>
+                                </tr>
+                                <tr>
+                                    <td><code>VIBRATE</code><br><code>WAKE_LOCK</code><br><code>FOREGROUND_SERVICE</code></td>
+                                    <td>Бесперебойная работа секундомера и вибрационный сигнал смены состава во время игры при заблокированном экране.</td>
+                                    <td>Автоматически в игровом режиме</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <hr>
+
+                <!-- Раздел 4 -->
+                <section id="purposes">
+                    <div class="section-header">
+                        <div class="section-icon-pill"><i class="fa-solid fa-bullseye"></i></div>
+                        <h2>
+                            4. Правовые основания и цели обработки
+                            <a href="#purposes" class="anchor-link" title="Скопировать ссылку на раздел"><i class="fa-solid fa-link"></i></a>
+                        </h2>
+                    </div>
+                    <p>4.1. <strong>Правовым основанием обработки</strong> является ст. 6 Федерального закона № 152-ФЗ «О персональных данных» (обработка необходима для исполнения соглашения по предоставлению функционала Приложения по инициативе Пользователя), а также согласие Пользователя.</p>
+                    <p>4.2. Обработка данных осуществляется исключительно в целях:</p>
+                    <ul class="custom-list">
+                        <li>Обеспечения функционирования всех модулей Приложения (составы, тактика, секундомер смен, статистика);</li>
+                        <li>Отображения локальных уведомлений и напоминаний;</li>
+                        <li>Обеспечения прямой передачи данных между устройствами Пользователей по их инициативе (P2P-обмен составами и схемами);</li>
+                        <li>Улучшения стабильности работы Приложения на основе обезличенных отчётов об ошибках (при согласии Пользователя).</li>
+                    </ul>
+                </section>
+
+                <hr>
+
+                <!-- Раздел 5: Несовершеннолетние -->
+                <section id="children">
+                    <div class="section-header">
+                        <div class="section-icon-pill"><i class="fa-solid fa-child"></i></div>
+                        <h2>
+                            5. Данные несовершеннолетних лиц
+                            <a href="#children" class="anchor-link" title="Скопировать ссылку на раздел"><i class="fa-solid fa-link"></i></a>
+                        </h2>
+                    </div>
+                    <p>5.1. Приложение не ориентировано на самостоятельное использование детьми в возрасте до 14 лет и не собирает их личные данные удалённо.</p>
+                    <p>5.2. В случае использования Приложения детскими тренерами, спортивными школами или родителями для ведения статистики детско-юношеских команд, лицо, осуществляющее ввод информации, гарантирует наличие согласий родителей (законных представителей) либо наличие иных законных оснований в рамках спортивной секции.</p>
+                    <p>5.3. Все данные несовершеннолетних сохраняются исключительно на локальном устройстве Пользователя.</p>
+                </section>
+
+                <hr>
+
+                <!-- Раздел 6 -->
+                <section id="storage">
+                    <div class="section-header">
+                        <div class="section-icon-pill"><i class="fa-solid fa-box-archive"></i></div>
+                        <h2>
+                            6. Локальное хранение, сроки и удаление данных
+                            <a href="#storage" class="anchor-link" title="Скопировать ссылку на раздел"><i class="fa-solid fa-link"></i></a>
+                        </h2>
+                    </div>
+                    <p><strong>6.1. Хранение:</strong> Данные хранятся в локальной базе данных SQLite (Room) и настройках <code>SharedPreferences</code> во внутренней изолированной памяти устройства Пользователя.</p>
+                    <p><strong>6.2. Сроки хранения:</strong> Персональные данные хранятся в течение всего периода использования Приложения Пользователем до момента удаления записей либо деинсталляции Приложения.</p>
+                    <p><strong>6.3. Резервное копирование:</strong> Пользователь может настраивать локальное создание резервных копий (бэкапов) базы данных на своём устройстве.</p>
+                    <p><strong>6.4. Удаление данных:</strong></p>
+                    <ul class="custom-list">
+                        <li>Пользователь может в любой момент отредактировать или удалить любые записи (игроков, команды, схемы) через интерфейс Приложения.</li>
+                        <li>Полное уничтожение всех данных происходит при деинсталляции Приложения с устройства или очистке данных Приложения в системных настройках Android.</li>
+                    </ul>
+                </section>
+
+                <hr>
+
+                <!-- Раздел 7 -->
+                <section id="third-parties">
+                    <div class="section-header">
+                        <div class="section-icon-pill"><i class="fa-solid fa-handshake-slash"></i></div>
+                        <h2>
+                            7. Передача третьим лицам и сторонние сервисы
+                            <a href="#third-parties" class="anchor-link" title="Скопировать ссылку на раздел"><i class="fa-solid fa-link"></i></a>
+                        </h2>
+                    </div>
+                    <div class="info-callout">
+                        <i class="fa-solid fa-ban"></i>
+                        <p><strong>Отсутствие аналитических трекеров:</strong> Приложение <strong>не содержит</strong> рекламных модулей и сторонних аналитических SDK (Google Analytics, Firebase Analytics, Yandex AppMetrica и т.д.). Оператор не передает данные пользователей маркетинговым платформам.</p>
+                    </div>
+                    <p><strong>Передача данных по инициативе Пользователя:</strong></p>
+                    <ul class="custom-list">
+                        <li><strong>P2P-обмен:</strong> Составы и схемы могут передаваться напрямую на другое устройство тренера по локальной сети/Bluetooth при успешном установлении соединения обеими сторонами.</li>
+                        <li><strong>Шеринг:</strong> Пользователь может экспортировать текстовые отчёты или изображения в сторонние приложения (мессенджеры, e-mail) через стандартное системное меню Android «Поделиться».</li>
+                    </ul>
+                    <p>Оператор не осуществляет продажу или систематическую передачу данных третьим лицам.</p>
+                </section>
+
+                <hr>
+
+                <!-- Раздел 8 -->
+                <section id="rights">
+                    <div class="section-header">
+                        <div class="section-icon-pill"><i class="fa-solid fa-user-shield"></i></div>
+                        <h2>
+                            8. Права Пользователя (152-ФЗ)
+                            <a href="#rights" class="anchor-link" title="Скопировать ссылку на раздел"><i class="fa-solid fa-link"></i></a>
+                        </h2>
+                    </div>
+                    <p>Пользователь имеет право:</p>
+                    <ul class="custom-list">
+                        <li>Полностью контролировать, редактировать и удалять введённую информацию;</li>
+                        <li>Включать или отключать в настройках Приложения автоматическую отправку отчётов об ошибках;</li>
+                        <li>Отозвать согласие на обработку данных путем удаления Приложения с устройства;</li>
+                        <li>Направлять официальные обращения Оператору по вопросам обработки персональных данных. Срок ответа на такие запросы составляет не более 10 (десяти) рабочих дней в соответствии с законодательством РФ.</li>
+                    </ul>
+                </section>
+
+                <hr>
+
+                <!-- Раздел 9 -->
+                <section id="changes">
+                    <div class="section-header">
+                        <div class="section-icon-pill"><i class="fa-solid fa-pen-nib"></i></div>
+                        <h2>
+                            9. Изменение Политики конфиденциальности
+                            <a href="#changes" class="anchor-link" title="Скопировать ссылку на раздел"><i class="fa-solid fa-link"></i></a>
+                        </h2>
+                    </div>
+                    <p>9.1. Оператор имеет право вносить изменения в настоящую Политику в одностороннем порядке.</p>
+                    <p>9.2. Актуальная версия документа всегда доступна в сети Интернет по постоянному адресу: <code>https://dryaba.github.io/</code></p>
+                    <p>9.3. Новая редакция Политики вступает в силу с момента ее размещения по указанному адресу, если иное не предусмотрено новой редакцией.</p>
+                </section>
+
+                <hr>
+
+                <!-- Раздел 10: Контакты -->
+                <section id="contacts">
+                    <div class="section-header">
+                        <div class="section-icon-pill"><i class="fa-solid fa-address-card"></i></div>
+                        <h2>
+                            10. Контактная информация Оператора
+                            <a href="#contacts" class="anchor-link" title="Скопировать ссылку на раздел"><i class="fa-solid fa-link"></i></a>
+                        </h2>
+                    </div>
+                    <p>По всем вопросам, связанным с Политикой конфиденциальности и работой Приложения, Вы можете обратиться к Оператору:</p>
+                    
+                    <div class="contacts-grid">
+                        <div class="contact-item">
+                            <i class="fa-solid fa-user"></i>
+                            <div class="contact-info">
+                                <span class="contact-label">Разработчик / Оператор</span>
+                                <strong>Гольцов Алексей Евгеньевич</strong>
+                            </div>
+                        </div>
+
+                        <a href="mailto:beerligaapp@yandex.ru" class="contact-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <div class="contact-info">
+                                <span class="contact-label">Электронная почта</span>
+                                <strong>beerligaapp@yandex.ru</strong>
+                            </div>
+                        </a>
+
+                        <a href="https://vk.com/write-240833309" target="_blank" rel="noopener noreferrer" class="contact-item">
+                            <i class="fa-brands fa-vk"></i>
+                            <div class="contact-info">
+                                <span class="contact-label">Сообщество ВКонтакте</span>
+                                <strong>vk.com/write-240833309</strong>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+            </main>
+
+        </div>
 
     </div>
 
+    <!-- Кнопка "Наверх" -->
+    <button class="back-to-top" id="backToTop" title="Наверх">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Всплывающий тост о копировании ссылки -->
+    <div class="toast-copied" id="copyToast">Ссылка на раздел скопирована в буфер обмена</div>
+
+    <!-- Интерактивные скрипты: Scrollspy, Кнопка наверх, Копирование якорей -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.toc-link');
+            const backToTopBtn = document.getElementById('backToTop');
+            const copyToast = document.getElementById('copyToast');
+
+            // 1. Scrollspy: активный раздел в оглавлении при скролле
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -60% 0px',
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active');
+                            } else {
+                                link.classList.remove('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => observer.observe(section));
+
+            // 2. Показ/скрытие кнопки "Наверх"
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // 3. Копирование прямой ссылки на раздел при клике на иконку якоря
+            document.querySelectorAll('.anchor-link').forEach(anchor => {
+                anchor.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const hash = anchor.getAttribute('href');
+                    const fullUrl = `${window.location.origin}${window.location.pathname}${hash}`;
+                    
+                    navigator.clipboard.writeText(fullUrl).then(() => {
+                        copyToast.classList.add('show');
+                        setTimeout(() => copyToast.classList.remove('show'), 2000);
+                    });
+
+                    // Плавный скролл к целевому разделу
+                    const targetEl = document.querySelector(hash);
+                    if (targetEl) {
+                        targetEl.scrollIntoView({ behavior: 'smooth' });
+                        history.pushState(null, null, hash);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
